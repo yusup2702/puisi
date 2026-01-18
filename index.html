@@ -1,96 +1,251 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Arsip Doa Sahabat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewer Chat JSON</title>
     <style>
-        /* Menggunakan Style yang Anda berikan dengan penyesuaian Mobile */
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #e5ddd5;
-            margin: 0;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-        }
-
-        h1 {
-            color: #075e54;
-            text-align: center;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-        }
-
-        .controls {
-            display: flex;
-            flex-direction: column; /* Mobile first: susun ke bawah */
-            gap: 12px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f0f2f5;
-            border-radius: 10px;
-        }
-
-        select {
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px; /* Mencegah zoom otomatis di iPhone */
-            outline: none;
-            width: 100%;
-        }
-
-        button {
-            padding: 12px;
-            background-color: #25d366;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .chat-box {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            min-height: 300px;
-            max-height: 60vh;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            line-height: 1.6;
-            font-size: 15px;
-            color: #333;
-        }
-
-        .loading-text {
-            text-align: center;
-            color: #666;
-            font-style: italic;
-        }
+        body { font-family: sans-serif; padding: 15px; background: #f0f2f5; color: #1c1e21; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #075e54; font-size: 1.5rem; }
+        .controls { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        select, button { padding: 12px; font-size: 16px; border-radius: 8px; border: 1px solid #ddd; }
+        button { background: #128c7e; color: white; font-weight: bold; border: none; cursor: pointer; }
+        .chat-box { border-top: 1px solid #eee; padding-top: 15px; line-height: 1.5; white-space: pre-wrap; font-size: 15px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Arsip Doa Sahabat</h1>
+        <h1>Arsip Doa</h1>
         <div class="controls">
             <select id="fileSelector">
-                <option value="">-- Memuat Tanggal... --</option>
+                <option value="">-- Pilih Tanggal --</option>
+                <option value="1">18/01/26</option>
+<option value="2">17/01/26</option>
+<option value="3">16/01/26</option>
+<option value="4">15/01/26</option>
+<option value="5">14/01/26</option>
+<option value="6">13/01/26</option>
+<option value="7">12/01/26</option>
+<option value="8">11/01/26</option>
+<option value="9">10/01/26</option>
+<option value="10">09/01/26</option>
+<option value="11">08/01/26</option>
+<option value="12">07/01/26</option>
+<option value="13">06/01/26</option>
+<option value="14">05/01/26</option>
+<option value="15">04/01/26</option>
+<option value="16">03/01/26</option>
+<option value="17">02/01/26</option>
+<option value="18">01/01/26</option>
+<option value="19">31/12/25</option>
+<option value="20">30/12/25</option>
+<option value="21">29/12/25</option>
+<option value="22">28/12/25</option>
+<option value="23">27/12/25</option>
+<option value="24">26/12/25</option>
+<option value="25">25/12/25</option>
+<option value="26">24/12/25</option>
+<option value="27">23/12/25</option>
+<option value="28">22/12/25</option>
+<option value="29">21/12/25</option>
+<option value="30">20/12/25</option>
+<option value="31">19/12/25</option>
+<option value="32">18/12/25</option>
+<option value="33">17/12/25</option>
+<option value="34">16/12/25</option>
+<option value="35">15/12/25</option>
+<option value="36">14/12/25</option>
+<option value="37">13/12/25</option>
+<option value="38">12/12/25</option>
+<option value="39">11/12/25</option>
+<option value="40">10/12/25</option>
+<option value="41">09/12/25</option>
+<option value="42">08/12/25</option>
+<option value="43">07/12/25</option>
+<option value="44">06/12/25</option>
+<option value="45">04/12/25</option>
+<option value="46">03/12/25</option>
+<option value="47">02/12/25</option>
+<option value="48">01/12/25</option>
+<option value="49">30/11/25</option>
+<option value="50">29/11/25</option>
+<option value="51">28/11/25</option>
+<option value="52">27/11/25</option>
+<option value="53">26/11/25</option>
+<option value="54">25/11/25</option>
+<option value="55">24/11/25</option>
+<option value="56">23/11/25</option>
+<option value="57">22/11/25</option>
+<option value="58">21/11/25</option>
+<option value="59">20/11/25</option>
+<option value="60">19/11/25</option>
+<option value="61">18/11/25</option>
+<option value="62">17/11/25</option>
+<option value="63">16/11/25</option>
+<option value="64">15/11/25</option>
+<option value="65">14/11/25</option>
+<option value="66">13/11/25</option>
+<option value="67">12/11/25</option>
+<option value="68">11/11/25</option>
+<option value="69">10/11/25</option>
+<option value="70">09/11/25</option>
+<option value="71">08/11/25</option>
+<option value="72">07/11/25</option>
+<option value="73">06/11/25</option>
+<option value="74">05/11/25</option>
+<option value="75">04/11/25</option>
+<option value="76">03/11/25</option>
+<option value="77">02/11/25</option>
+<option value="78">01/11/25</option>
+<option value="79">31/10/25</option>
+<option value="80">30/10/25</option>
+<option value="81">29/10/25</option>
+<option value="82">28/10/25</option>
+<option value="83">27/10/25</option>
+<option value="84">26/10/25</option>
+<option value="85">25/10/25</option>
+<option value="86">24/10/25</option>
+<option value="87">23/10/25</option>
+<option value="88">22/10/25</option>
+<option value="89">21/10/25</option>
+<option value="90">20/10/25</option>
+<option value="91">19/10/25</option>
+<option value="92">18/10/25</option>
+<option value="93">17/10/25</option>
+<option value="94">16/10/25</option>
+<option value="95">15/10/25</option>
+<option value="96">14/10/25</option>
+<option value="97">13/10/25</option>
+<option value="98">12/10/25</option>
+<option value="99">11/10/25</option>
+<option value="100">10/10/25</option>
+<option value="101">09/10/25</option>
+<option value="102">08/10/25</option>
+<option value="103">07/10/25</option>
+<option value="104">06/10/25</option>
+<option value="105">05/10/25</option>
+<option value="106">04/10/25</option>
+<option value="107">03/10/25</option>
+<option value="108">02/10/25</option>
+<option value="109">01/10/25</option>
+<option value="110">30/09/25</option>
+<option value="111">29/09/25</option>
+<option value="112">28/09/25</option>
+<option value="113">27/09/25</option>
+<option value="114">26/09/25</option>
+<option value="115">25/09/25</option>
+<option value="116">24/09/25</option>
+<option value="117">23/09/25</option>
+<option value="118">22/09/25</option>
+<option value="119">21/09/25</option>
+<option value="120">20/09/25</option>
+<option value="121">19/09/25</option>
+<option value="122">18/09/25</option>
+<option value="123">17/09/25</option>
+<option value="124">16/09/25</option>
+<option value="125">15/09/25</option>
+<option value="126">14/09/25</option>
+<option value="127">13/09/25</option>
+<option value="128">12/09/25</option>
+<option value="129">11/09/25</option>
+<option value="130">10/09/25</option>
+<option value="131">09/09/25</option>
+<option value="132">08/09/25</option>
+<option value="133">07/09/25</option>
+<option value="134">06/09/25</option>
+<option value="135">05/09/25</option>
+<option value="136">04/09/25</option>
+<option value="137">03/09/25</option>
+<option value="138">02/09/25</option>
+<option value="139">01/09/25</option>
+<option value="140">31/08/25</option>
+<option value="141">30/08/25</option>
+<option value="142">29/08/25</option>
+<option value="143">28/08/25</option>
+<option value="144">27/08/25</option>
+<option value="145">26/08/25</option>
+<option value="146">25/08/25</option>
+<option value="147">24/08/25</option>
+<option value="148">23/08/25</option>
+<option value="149">22/08/25</option>
+<option value="150">21/08/25</option>
+<option value="151">20/08/25</option>
+<option value="152">19/08/25</option>
+<option value="153">18/08/25</option>
+<option value="154">17/08/25</option>
+<option value="155">16/08/25</option>
+<option value="156">15/08/25</option>
+<option value="157">14/08/25</option>
+<option value="158">13/08/25</option>
+<option value="159">12/08/25</option>
+<option value="160">11/08/25</option>
+<option value="161">10/08/25</option>
+<option value="162">09/08/25</option>
+<option value="163">08/08/25</option>
+<option value="164">07/08/25</option>
+<option value="165">06/08/25</option>
+<option value="166">05/08/25</option>
+<option value="167">04/08/25</option>
+<option value="168">03/08/25</option>
+<option value="169">02/08/25</option>
+<option value="170">01/08/25</option>
+<option value="171">31/07/25</option>
+<option value="172">30/07/25</option>
+<option value="173">29/07/25</option>
+<option value="174">28/07/25</option>
+<option value="175">27/07/25</option>
+<option value="176">26/07/25</option>
+<option value="177">25/07/25</option>
+<option value="178">24/07/25</option>
+<option value="179">23/07/25</option>
+<option value="180">21/07/25</option>
+<option value="181">20/07/25</option>
+<option value="182">19/07/25</option>
+<option value="183">18/07/25</option>
+<option value="184">17/07/25</option>
+<option value="185">16/07/25</option>
+<option value="186">15/07/25</option>
+<option value="187">14/07/25</option>
+<option value="188">13/07/25</option>
+<option value="189">12/07/25</option>
+<option value="190">11/07/25</option>
+<option value="191">10/07/25</option>
+<option value="192">09/07/25</option>
+<option value="193">08/07/25</option>
+<option value="194">07/07/25</option>
+<option value="195">06/07/25</option>
+<option value="196">05/07/25</option>
+<option value="197">04/07/25</option>
+<option value="198">03/07/25</option>
+<option value="199">02/07/25</option>
+<option value="200">01/07/25</option>
+<option value="201">30/06/25</option>
+<option value="202">29/06/25</option>
+<option value="203">28/06/25</option>
+<option value="204">27/06/25</option>
+<option value="205">26/06/25</option>
+<option value="206">25/06/25</option>
+<option value="207">24/06/25</option>
+<option value="208">23/06/25</option>
+<option value="209">22/06/25</option>
+<option value="210">21/06/25</option>
+<option value="211">20/06/25</option>
+<option value="212">19/06/25</option>
+<option value="213">18/06/25</option>
+<option value="214">17/06/25</option>
+<option value="215">16/06/25</option>
+<option value="216">15/06/25</option>
+<option value="217">14/06/25</option>
+<option value="218">13/06/25</option>
+<option value="219">12/06/25</option>
+<option value="220">11/06/25</option>
+<option value="221">10/06/25</option>
+<option value="222">09/06/25</option>
+
             </select>
-            <button onclick="showChat()">Buka Pesan</button>
+            <button onclick="loadFromJSON()">Buka Pesan</button>
         </div>
         <div id="displayArea" class="chat-box">Pilih tanggal untuk melihat isi...</div>
     </div>
@@ -98,31 +253,17 @@
     <script>
         let chatData = [];
 
-        // 1. Ambil data dari JSON saat halaman dibuka
+        // Load JSON saat halaman dibuka
         async function init() {
-            const selector = document.getElementById('fileSelector');
             try {
                 const response = await fetch('data.json');
-                if (!response.ok) throw new Error("File data.json tidak ditemukan");
-                
                 chatData = await response.json();
-                
-                // Isi dropdown
-                selector.innerHTML = '<option value="">-- Pilih Tanggal --</option>';
-                chatData.forEach(item => {
-                    const opt = document.createElement('option');
-                    opt.value = item.id;
-                    opt.textContent = item.tanggal;
-                    selector.appendChild(opt);
-                });
             } catch (e) {
-                selector.innerHTML = '<option value="">Gagal memuat data</option>';
-                document.getElementById('displayArea').innerText = "Kesalahan: Pastikan data.json sudah diupload di folder yang sama.";
+                console.error("Gagal memuat JSON:", e);
             }
         }
 
-        // 2. Tampilkan chat berdasarkan pilihan
-        function showChat() {
+        function loadFromJSON() {
             const id = document.getElementById('fileSelector').value;
             const display = document.getElementById('displayArea');
             
@@ -131,8 +272,6 @@
             const selected = chatData.find(item => item.id == id);
             if (selected) {
                 display.innerText = selected.pesan;
-                // Scroll ke atas otomatis saat ganti pesan
-                display.scrollTop = 0;
             }
         }
 
