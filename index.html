@@ -1,253 +1,142 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viewer Chat Otomatis</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Arsip Doa Sahabat</title>
     <style>
-        body { font-family: sans-serif; padding: 15px; background: #f4f4f4; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .controls { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-        select, button { padding: 12px; font-size: 16px; border-radius: 5px; border: 1px solid #ddd; }
-        button { background: #25d366; color: white; font-weight: bold; cursor: pointer; border: none; }
-        .chat-box { border-top: 2px solid #eee; padding-top: 15px; line-height: 1.6; white-space: pre-wrap; }
+        /* Menggunakan Style yang Anda berikan dengan penyesuaian Mobile */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #e5ddd5;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #075e54;
+            text-align: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column; /* Mobile first: susun ke bawah */
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f0f2f5;
+            border-radius: 10px;
+        }
+
+        select {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px; /* Mencegah zoom otomatis di iPhone */
+            outline: none;
+            width: 100%;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .chat-box {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 300px;
+            max-height: 60vh;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .loading-text {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Arsip Chat</h1>
+        <h1>Arsip Doa Sahabat</h1>
         <div class="controls">
             <select id="fileSelector">
-                <option value="">-- Pilih Tanggal --</option>
-                <option value="doa_1.txt">18/01/26</option>
-<option value="doa_2.txt">17/01/26</option>
-<option value="doa_3.txt">16/01/26</option>
-<option value="doa_4.txt">15/01/26</option>
-<option value="doa_5.txt">14/01/26</option>
-<option value="doa_6.txt">13/01/26</option>
-<option value="doa_7.txt">12/01/26</option>
-<option value="doa_8.txt">11/01/26</option>
-<option value="doa_9.txt">10/01/26</option>
-<option value="doa_10.txt">09/01/26</option>
-<option value="doa_11.txt">08/01/26</option>
-<option value="doa_12.txt">07/01/26</option>
-<option value="doa_13.txt">06/01/26</option>
-<option value="doa_14.txt">05/01/26</option>
-<option value="doa_15.txt">04/01/26</option>
-<option value="doa_16.txt">03/01/26</option>
-<option value="doa_17.txt">02/01/26</option>
-<option value="doa_18.txt">01/01/26</option>
-<option value="doa_19.txt">31/12/25</option>
-<option value="doa_20.txt">30/12/25</option>
-<option value="doa_21.txt">29/12/25</option>
-<option value="doa_22.txt">28/12/25</option>
-<option value="doa_23.txt">27/12/25</option>
-<option value="doa_24.txt">26/12/25</option>
-<option value="doa_25.txt">25/12/25</option>
-<option value="doa_26.txt">24/12/25</option>
-<option value="doa_27.txt">23/12/25</option>
-<option value="doa_28.txt">22/12/25</option>
-<option value="doa_29.txt">21/12/25</option>
-<option value="doa_30.txt">20/12/25</option>
-<option value="doa_31.txt">19/12/25</option>
-<option value="doa_32.txt">18/12/25</option>
-<option value="doa_33.txt">17/12/25</option>
-<option value="doa_34.txt">16/12/25</option>
-<option value="doa_35.txt">15/12/25</option>
-<option value="doa_36.txt">14/12/25</option>
-<option value="doa_37.txt">13/12/25</option>
-<option value="doa_38.txt">12/12/25</option>
-<option value="doa_39.txt">11/12/25</option>
-<option value="doa_40.txt">10/12/25</option>
-<option value="doa_41.txt">09/12/25</option>
-<option value="doa_42.txt">08/12/25</option>
-<option value="doa_43.txt">07/12/25</option>
-<option value="doa_44.txt">06/12/25</option>
-<option value="doa_45.txt">04/12/25</option>
-<option value="doa_46.txt">03/12/25</option>
-<option value="doa_47.txt">02/12/25</option>
-<option value="doa_48.txt">01/12/25</option>
-<option value="doa_49.txt">30/11/25</option>
-<option value="doa_50.txt">29/11/25</option>
-<option value="doa_51.txt">28/11/25</option>
-<option value="doa_52.txt">27/11/25</option>
-<option value="doa_53.txt">26/11/25</option>
-<option value="doa_54.txt">25/11/25</option>
-<option value="doa_55.txt">24/11/25</option>
-<option value="doa_56.txt">23/11/25</option>
-<option value="doa_57.txt">22/11/25</option>
-<option value="doa_58.txt">21/11/25</option>
-<option value="doa_59.txt">20/11/25</option>
-<option value="doa_60.txt">19/11/25</option>
-<option value="doa_61.txt">18/11/25</option>
-<option value="doa_62.txt">17/11/25</option>
-<option value="doa_63.txt">16/11/25</option>
-<option value="doa_64.txt">15/11/25</option>
-<option value="doa_65.txt">14/11/25</option>
-<option value="doa_66.txt">13/11/25</option>
-<option value="doa_67.txt">12/11/25</option>
-<option value="doa_68.txt">11/11/25</option>
-<option value="doa_69.txt">10/11/25</option>
-<option value="doa_70.txt">09/11/25</option>
-<option value="doa_71.txt">08/11/25</option>
-<option value="doa_72.txt">07/11/25</option>
-<option value="doa_73.txt">06/11/25</option>
-<option value="doa_74.txt">05/11/25</option>
-<option value="doa_75.txt">04/11/25</option>
-<option value="doa_76.txt">03/11/25</option>
-<option value="doa_77.txt">02/11/25</option>
-<option value="doa_78.txt">01/11/25</option>
-<option value="doa_79.txt">31/10/25</option>
-<option value="doa_80.txt">30/10/25</option>
-<option value="doa_81.txt">29/10/25</option>
-<option value="doa_82.txt">28/10/25</option>
-<option value="doa_83.txt">27/10/25</option>
-<option value="doa_84.txt">26/10/25</option>
-<option value="doa_85.txt">25/10/25</option>
-<option value="doa_86.txt">24/10/25</option>
-<option value="doa_87.txt">23/10/25</option>
-<option value="doa_88.txt">22/10/25</option>
-<option value="doa_89.txt">21/10/25</option>
-<option value="doa_90.txt">20/10/25</option>
-<option value="doa_91.txt">19/10/25</option>
-<option value="doa_92.txt">18/10/25</option>
-<option value="doa_93.txt">17/10/25</option>
-<option value="doa_94.txt">16/10/25</option>
-<option value="doa_95.txt">15/10/25</option>
-<option value="doa_96.txt">14/10/25</option>
-<option value="doa_97.txt">13/10/25</option>
-<option value="doa_98.txt">12/10/25</option>
-<option value="doa_99.txt">11/10/25</option>
-<option value="doa_100.txt">10/10/25</option>
-<option value="doa_101.txt">09/10/25</option>
-<option value="doa_102.txt">08/10/25</option>
-<option value="doa_103.txt">07/10/25</option>
-<option value="doa_104.txt">06/10/25</option>
-<option value="doa_105.txt">05/10/25</option>
-<option value="doa_106.txt">04/10/25</option>
-<option value="doa_107.txt">03/10/25</option>
-<option value="doa_108.txt">02/10/25</option>
-<option value="doa_109.txt">01/10/25</option>
-<option value="doa_110.txt">30/09/25</option>
-<option value="doa_111.txt">29/09/25</option>
-<option value="doa_112.txt">28/09/25</option>
-<option value="doa_113.txt">27/09/25</option>
-<option value="doa_114.txt">26/09/25</option>
-<option value="doa_115.txt">25/09/25</option>
-<option value="doa_116.txt">24/09/25</option>
-<option value="doa_117.txt">23/09/25</option>
-<option value="doa_118.txt">22/09/25</option>
-<option value="doa_119.txt">21/09/25</option>
-<option value="doa_120.txt">20/09/25</option>
-<option value="doa_121.txt">19/09/25</option>
-<option value="doa_122.txt">18/09/25</option>
-<option value="doa_123.txt">17/09/25</option>
-<option value="doa_124.txt">16/09/25</option>
-<option value="doa_125.txt">15/09/25</option>
-<option value="doa_126.txt">14/09/25</option>
-<option value="doa_127.txt">13/09/25</option>
-<option value="doa_128.txt">12/09/25</option>
-<option value="doa_129.txt">11/09/25</option>
-<option value="doa_130.txt">10/09/25</option>
-<option value="doa_131.txt">09/09/25</option>
-<option value="doa_132.txt">08/09/25</option>
-<option value="doa_133.txt">07/09/25</option>
-<option value="doa_134.txt">06/09/25</option>
-<option value="doa_135.txt">05/09/25</option>
-<option value="doa_136.txt">04/09/25</option>
-<option value="doa_137.txt">03/09/25</option>
-<option value="doa_138.txt">02/09/25</option>
-<option value="doa_139.txt">01/09/25</option>
-<option value="doa_140.txt">31/08/25</option>
-<option value="doa_141.txt">30/08/25</option>
-<option value="doa_142.txt">29/08/25</option>
-<option value="doa_143.txt">28/08/25</option>
-<option value="doa_144.txt">27/08/25</option>
-<option value="doa_145.txt">26/08/25</option>
-<option value="doa_146.txt">25/08/25</option>
-<option value="doa_147.txt">24/08/25</option>
-<option value="doa_148.txt">23/08/25</option>
-<option value="doa_149.txt">22/08/25</option>
-<option value="doa_150.txt">21/08/25</option>
-<option value="doa_151.txt">20/08/25</option>
-<option value="doa_152.txt">19/08/25</option>
-<option value="doa_153.txt">18/08/25</option>
-<option value="doa_154.txt">17/08/25</option>
-<option value="doa_155.txt">16/08/25</option>
-<option value="doa_156.txt">15/08/25</option>
-<option value="doa_157.txt">14/08/25</option>
-<option value="doa_158.txt">13/08/25</option>
-<option value="doa_159.txt">12/08/25</option>
-<option value="doa_160.txt">11/08/25</option>
-<option value="doa_161.txt">10/08/25</option>
-<option value="doa_162.txt">09/08/25</option>
-<option value="doa_163.txt">08/08/25</option>
-<option value="doa_164.txt">07/08/25</option>
-<option value="doa_165.txt">06/08/25</option>
-<option value="doa_166.txt">05/08/25</option>
-<option value="doa_167.txt">04/08/25</option>
-<option value="doa_168.txt">03/08/25</option>
-<option value="doa_169.txt">02/08/25</option>
-<option value="doa_170.txt">01/08/25</option>
-<option value="doa_171.txt">31/07/25</option>
-<option value="doa_172.txt">30/07/25</option>
-<option value="doa_173.txt">29/07/25</option>
-<option value="doa_174.txt">28/07/25</option>
-<option value="doa_175.txt">27/07/25</option>
-<option value="doa_176.txt">26/07/25</option>
-<option value="doa_177.txt">25/07/25</option>
-<option value="doa_178.txt">24/07/25</option>
-<option value="doa_179.txt">23/07/25</option>
-<option value="doa_180.txt">21/07/25</option>
-<option value="doa_181.txt">20/07/25</option>
-<option value="doa_182.txt">19/07/25</option>
-<option value="doa_183.txt">18/07/25</option>
-<option value="doa_184.txt">17/07/25</option>
-<option value="doa_185.txt">16/07/25</option>
-<option value="doa_186.txt">15/07/25</option>
-<option value="doa_187.txt">14/07/25</option>
-<option value="doa_188.txt">13/07/25</option>
-<option value="doa_189.txt">12/07/25</option>
-<option value="doa_190.txt">11/07/25</option>
-<option value="doa_191.txt">10/07/25</option>
-<option value="doa_192.txt">09/07/25</option>
-<option value="doa_193.txt">08/07/25</option>
-<option value="doa_194.txt">07/07/25</option>
-<option value="doa_195.txt">06/07/25</option>
-<option value="doa_196.txt">05/07/25</option>
-<option value="doa_197.txt">04/07/25</option>
-<option value="doa_198.txt">03/07/25</option>
-<option value="doa_199.txt">02/07/25</option>
-<option value="doa_200.txt">01/07/25</option>
-<option value="doa_201.txt">30/06/25</option>
-<option value="doa_202.txt">29/06/25</option>
-<option value="doa_203.txt">28/06/25</option>
-<option value="doa_204.txt">27/06/25</option>
-<option value="doa_205.txt">26/06/25</option>
-<option value="doa_206.txt">25/06/25</option>
-<option value="doa_207.txt">24/06/25</option>
-<option value="doa_208.txt">23/06/25</option>
-<option value="doa_209.txt">22/06/25</option>
-<option value="doa_210.txt">21/06/25</option>
-<option value="doa_211.txt">20/06/25</option>
-<option value="doa_212.txt">19/06/25</option>
-<option value="doa_213.txt">18/06/25</option>
-<option value="doa_214.txt">17/06/25</option>
-<option value="doa_215.txt">16/06/25</option>
-<option value="doa_216.txt">15/06/25</option>
-<option value="doa_217.txt">14/06/25</option>
-<option value="doa_218.txt">13/06/25</option>
-<option value="doa_219.txt">12/06/25</option>
-<option value="doa_220.txt">11/06/25</option>
-<option value="doa_221.txt">10/06/25</option>
-<option value="doa_222.txt">09/06/25</option>
+                <option value="">-- Memuat Tanggal... --</option>
             </select>
-            <button onclick="loadFile()">Buka Pesan</button>
+            <button onclick="showChat()">Buka Pesan</button>
         </div>
         <div id="displayArea" class="chat-box">Pilih tanggal untuk melihat isi...</div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        let chatData = [];
+
+        // 1. Ambil data dari JSON saat halaman dibuka
+        async function init() {
+            const selector = document.getElementById('fileSelector');
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) throw new Error("File data.json tidak ditemukan");
+                
+                chatData = await response.json();
+                
+                // Isi dropdown
+                selector.innerHTML = '<option value="">-- Pilih Tanggal --</option>';
+                chatData.forEach(item => {
+                    const opt = document.createElement('option');
+                    opt.value = item.id;
+                    opt.textContent = item.tanggal;
+                    selector.appendChild(opt);
+                });
+            } catch (e) {
+                selector.innerHTML = '<option value="">Gagal memuat data</option>';
+                document.getElementById('displayArea').innerText = "Kesalahan: Pastikan data.json sudah diupload di folder yang sama.";
+            }
+        }
+
+        // 2. Tampilkan chat berdasarkan pilihan
+        function showChat() {
+            const id = document.getElementById('fileSelector').value;
+            const display = document.getElementById('displayArea');
+            
+            if (!id) return;
+            
+            const selected = chatData.find(item => item.id == id);
+            if (selected) {
+                display.innerText = selected.pesan;
+                // Scroll ke atas otomatis saat ganti pesan
+                display.scrollTop = 0;
+            }
+        }
+
+        init();
+    </script>
 </body>
 </html>
